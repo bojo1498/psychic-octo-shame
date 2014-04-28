@@ -1,0 +1,34 @@
+<?php
+$search = $_GET['search'];
+$data = array('key' => '7MTYXDDGP9D67FCZ5J9CDQQR',
+              /*'consignorId' => '1',*/
+			  'query' => $search,
+			  'includeItemsWithQuantityZero' => 'false');
+$data_string = json_encode($data);
+
+$context = stream_context_create(array(
+	'http' => array(
+		'method' => "POST",
+		'header' => "Accept: application/json\r\n".
+					"Content-Type: application/json\r\n",
+		'content' => $data_string
+	)
+));
+
+$result = file_get_contents('https://user.traxia.com/app/api/inventory', false, $context);
+
+
+$jsonData = $result;
+$phpArray = json_decode($jsonData, true);
+$phpArray = $phpArray['results'];
+foreach ($phpArray as $key => $value) { 
+    print_r "<h2>$key</h2>";
+    foreach ($value as $k => $v) { 
+        print_r "$k | $v <br />"; 
+    }
+}
+
+/* echo $result; */
+
+
+?>
