@@ -11,7 +11,7 @@ $context = stream_context_create(array(
 		'method' => "POST",
 		'header' => "Accept: application/json\r\n".
 					"Content-Type: application/json\r\n",
-		'content' => $data_string
+		'content' => $data_string;
 	)
 ));
 
@@ -22,7 +22,7 @@ $jsonData = $result;
 $phpArray = json_decode($jsonData, true);
 $phpArray = $phpArray['results'];
 foreach ($phpArray as $key => $value) { 
-    /* print_r "<h2>$key</h2>"; */
+    print_r "<h2>$key</h2>";
     foreach ($value as $k => $v) { 
         print_r "$k | $v <br />"; 
     }
