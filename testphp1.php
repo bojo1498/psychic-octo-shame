@@ -1,7 +1,10 @@
 <?php
+
+require './secret.php';
+
 echo "hi";
 $search = $_GET['search'];
-$data = array('key' => ' ',
+$data = array('key' => $API_KEY,
               /*'consignorId' => '1',*/
 			  'query' => $search,
 			  'includeItemsWithQuantityZero' => 'false');
