@@ -1,6 +1,7 @@
 <?php
+echo "hi";
 $search = $_GET['search'];
-$data = array('key' => '7MTYXDDGP9D67FCZ5J9CDQQR',
+$data = array('key' => ' ',
               /*'consignorId' => '1',*/
 			  'query' => $search,
 			  'includeItemsWithQuantityZero' => 'false');
