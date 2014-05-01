@@ -24,9 +24,9 @@ $jsonData = $result;
 $phpArray = json_decode($jsonData, true);
 $phpArray = $phpArray['results'];
 foreach ($phpArray as $key => $value) { 
-    print_r "<h2>$key</h2>";
+    print_r("<h2>$key</h2>");
     foreach ($value as $k => $v) { 
-        print_r "$k | $v <br />"; 
+        print_r("$k | $v <br />");
     }
 }
 
