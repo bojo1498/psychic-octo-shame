@@ -5,6 +5,7 @@ $data = array('key' => ' ',
               /*'consignorId' => '1',*/
 			  'query' => $search,
 			  'includeItemsWithQuantityZero' => 'false');
+
 $data_string = json_encode($data);
 
 $context = stream_context_create(array(
@@ -12,7 +13,7 @@ $context = stream_context_create(array(
 		'method' => "POST",
 		'header' => "Accept: application/json\r\n".
 					"Content-Type: application/json\r\n",
-		'content' => $data_string;
+		'content' => $data_string
 	)
 ));
 
