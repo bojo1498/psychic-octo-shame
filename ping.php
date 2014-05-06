@@ -1,7 +1,7 @@
 <?php
 $host = 'https://user.traxia.com/app/api/inventory'; 
 $port = 80; 
-$waitTimeoutInSeconds = 1; 
+$waitTimeoutInSeconds = 10; 
 if($fp = fsockopen($host,$port,$errCode,$errStr,$waitTimeoutInSeconds)){   
    echo "it's all good.";
 } else {
