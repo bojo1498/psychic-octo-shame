@@ -1,11 +1,12 @@
 <?php
-$host = 'https://user.traxia.com/app/api/inventory'; 
-$port = 80; 
-$waitTimeoutInSeconds = 10; 
-if($fp = fsockopen($host,$port,$errCode,$errStr,$waitTimeoutInSeconds)){   
-   echo "it's all good.";
-} else {
-   echo "hey for once it's their fault!";
-} 
-fclose($fp);
+function ping($host, $port, $timeout) { 
+  $tB = microtime(true); 
+  $fP = fSockOpen($host, $port, $errno, $errstr, $timeout); 
+  if (!$fP) { return "down"; } 
+  $tA = microtime(true); 
+  return round((($tA - $tB) * 1000), 0)." ms"; 
+}
+
+//Echoing it will display the ping if the host is up, if not it'll say "down".
+echo ping("'https://user.traxia.com/app/api/inventory", 80, 10);
 ?>
