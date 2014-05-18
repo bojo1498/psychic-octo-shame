@@ -1,6 +1,6 @@
 <?php
 
-require '/secret.php';
+require './secret.php';
 
 echo "hi";
 $search = $_GET['search'];
