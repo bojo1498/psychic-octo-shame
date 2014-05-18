@@ -2,7 +2,6 @@
 
 require './secret.php';
 
-echo "hi";
 $search = $_GET['search'];
 $data = array('key' => $API_KEY,
               /*'consignorId' => '1',*/
@@ -26,6 +25,7 @@ $result = file_get_contents('https://user.traxia.com/app/api/inventory', false, 
 $jsonData = $result;
 $phpArray = json_decode($jsonData, true);
 $phpArray = $phpArray['results'];
+<<<<<<< HEAD
 ?>
 <html> 
 <table border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse">
@@ -52,3 +52,17 @@ $phpArray = $phpArray['results'];
      </tbody>
   </table>
 </html>
+=======
+foreach ($phpArray as $key => $value) { 
+    print_r("<h2>$key</h2>");
+    foreach ($value as $k => $v) { 
+        print_r("$k | $v <br />");
+    }
+}
+
+/* echo $result; */
+
+
+?>
+
+>>>>>>> FETCH_HEAD
