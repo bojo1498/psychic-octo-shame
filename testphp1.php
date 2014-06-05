@@ -40,7 +40,7 @@ $mykeys = array('name','category','color','size','currentPrice');
            <?php
         foreach($mykeys as $k) {
             echo "<th>$k</th>";
-            echo "<img src='/test/images/UpDown.png'>"
+            echo "<img src='/test/images/UpDown.png'>";
         }
         ?>
         </tr>
