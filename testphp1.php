@@ -42,7 +42,7 @@ $mykeys = array('name','category','color','size','currentPrice');
         <tr>
            <?php
         foreach($mykeys as $k) {
-            echo "<td>$k<img src='/test/images/UpDown.png' width='8px' height='auto' style='margin: 0px 20px'></td>";
+            echo "<td style='cursor:pointer'>$k<img src='/test/images/UpDown.png' width='8px' height='auto' style='margin: 0px 20px'></td>";
         }
         ?>
         </tr>
