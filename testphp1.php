@@ -29,6 +29,7 @@ $jsonData = $result;
 $phpArray = json_decode($jsonData, true);
 $phpArray = $phpArray['results'];
 $activeonly = array_filter($phpArray, function($active) { return $status['status']=="ACTIVE"; });
+$mykeys = array('name','category','color','size','currentPrice');
 }
 ?>
 <html> 
@@ -46,11 +47,11 @@ $activeonly = array_filter($phpArray, function($active) { return $status['status
      <tbody>
         <?php
         foreach($phpArray as $key => $values) {
-           echo '<tr>';
-           foreach($values as $v) {
-              echo "<td>" . implode('<br /> ', (array)$v) . "</td>";
-           }
-           echo '</tr>';
+            echo '<tr>';
+            foreach($mykeys as $k) {
+                echo "<td>".$values[$k]."</td>";
+            }
+            echo '</tr>';
         }
         ?>
      </tbody>
