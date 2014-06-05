@@ -38,10 +38,10 @@ $mykeys = array('name','category','color','size','currentPrice');
      <thead>
         <tr>
            <?php
-           foreach(array_keys($phpArray[0]) as $k) {
-              echo "<th>$k</th>";
-           }
-           ?>
+        foreach($mykeys as $k) {
+            echo "<th>$k</th>";
+        }
+        ?>
         </tr>
      </thead>
      <tbody>
