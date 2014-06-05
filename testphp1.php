@@ -14,12 +14,12 @@ $data = array('key' => $API_KEY,
 $data_string = json_encode($data);
 
 $context = stream_context_create(array(
-	'http' => array(
-		'method' => "POST",
-		'header' => "Accept: application/json\r\n".
-					"Content-Type: application/json\r\n",
-		'content' => $data_string
-	)
+  'http' => array(
+    'method' => "POST",
+    'header' => "Accept: application/json\r\n".
+          "Content-Type: application/json\r\n",
+    'content' => $data_string
+  )
 ));
 
 $result = file_get_contents('https://user.traxia.com/app/api/inventory', false, $context);
@@ -34,20 +34,18 @@ $mykeys = array('name','category','color','size','currentPrice');
 ?>
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="/test/search-results.css">
-</head> 
-<table border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse" class="SearchResults">
-     <!-- border, cellspacing, and cellpadding attributes are not recommended; only included for example's conciseness -->
-     <thead>
+<link rel="stylesheet" type="text/css" href="/test/css/search-results.css">
+</head>
+<div class="CSSTableGenerator"> 
+<table>
+     <tbody>
         <tr>
            <?php
         foreach($mykeys as $k) {
-           echo "<th>$k<img src='/test/images/UpDown.png' width='15px' height='15px'></th>";
+            echo "<td>$k<img src='/test/images/UpDown.png' width='8px' height='auto' style='margin: 0px 20px'></td>";
         }
         ?>
         </tr>
-     </thead>
-     <tbody>
         <?php
         foreach($phpArray as $key => $values) {
             echo '<tr>';
@@ -59,4 +57,5 @@ $mykeys = array('name','category','color','size','currentPrice');
         ?>
      </tbody>
   </table>
+  </div>
 </html>
