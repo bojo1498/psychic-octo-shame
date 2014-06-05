@@ -50,7 +50,8 @@ $mykeys = array('name','category','color','size','currentPrice');
         foreach($phpArray as $key => $values) {
             echo '<tr>';
             foreach($mykeys as $k) {
-                echo "<td>".$values[$k]."</td>";
+                $value = $k == "currentPrice" ? '$' . number_format($values[$k]/100,'2') : $values[$k];
+                echo "<td>" . $value . "</td>";
             }
             echo '</tr>';
         }
