@@ -1,5 +1,8 @@
 <?php
-
+if (search == "") {
+	echo "Please enter a query. <a href='/search.php'>Click Here</a> to go back"
+}
+else {
 require './secret.php';
 
 $search = $_GET['search'];
@@ -26,6 +29,7 @@ $jsonData = $result;
 $phpArray = json_decode($jsonData, true);
 $phpArray = $phpArray['results'];
 $activeonly = array_filter($phpArray, function($active) { return $status['status']=="ACTIVE"; });
+}
 ?>
 <html> 
 <table border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse">
