@@ -32,8 +32,11 @@ $activeonly = array_filter($phpArray, function($active) { return $status['status
 $mykeys = array('name','category','color','size','currentPrice');
 }
 ?>
-<html> 
-<table border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse">
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="/test/search-results.css">
+</head> 
+<table border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse" class="SearchResults">
      <!-- border, cellspacing, and cellpadding attributes are not recommended; only included for example's conciseness -->
      <thead>
         <tr>
