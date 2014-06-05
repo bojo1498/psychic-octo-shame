@@ -25,6 +25,7 @@ $result = file_get_contents('https://user.traxia.com/app/api/inventory', false, 
 $jsonData = $result;
 $phpArray = json_decode($jsonData, true);
 $phpArray = $phpArray['results'];
+$activeonly = array_filter($phpArray, function($active) { return $status['status']=="ACTIVE"; });
 ?>
 <html> 
 <table border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse">
