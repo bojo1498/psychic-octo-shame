@@ -3,10 +3,11 @@ require './secret.php';
 
 $search = $_GET['search'];
 if ($search == "") {
-	echo "Please enter a query. <a href='/search.php'>Click Here</a> to go back"
+	echo "Please enter a query. <a href='/search.php'>Click Here</a> to go back";
+	break;
 }
 else {
-$data = array('key' => $API_KEY,
+	$data = array('key' => $API_KEY,
               /*'consignorId' => '1',*/
 			  'query' => $search,
 			  'includeItemsWithQuantityZero' => 'false');
