@@ -79,6 +79,7 @@ $(document).ready(function()
         foreach($phpArray as $key => $values) {
             echo '<tr>';
             foreach($mykeys as $k) {
+                if ($values['category'] == 'UNCATEGORIZED') continue;
                 $value = $k == "currentPrice" ? '$' . number_format($values[$k]/100,'2') : $values[$k];
                 echo "<td>" . $value . "</td>";
             }
