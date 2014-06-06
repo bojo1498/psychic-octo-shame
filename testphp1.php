@@ -29,23 +29,52 @@ $jsonData = $result;
 $phpArray = json_decode($jsonData, true);
 $phpArray = $phpArray['results'];
 $activeonly = array_filter($phpArray, function($active) { return $status['status']=="ACTIVE"; });
-$mykeys = array('name','category','color','size','currentPrice');
+$mykeys = array('name','sku','category','color','size','currentPrice');
 }
 ?>
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="/test/css/search-results.css">
+<script type="text/javascript" src="/test/js/tablesorter/jquery-latest.js"></script> 
+<script type="text/javascript" src="/test/js/tablesorter/jquery.tablesorter.js"></script>
+<script>
+$(document).ready(function() 
+    { 
+        $("#myTable").tablesorter(); 
+    } 
+); 
+</script> 
 </head>
 <div class="CSSTableGenerator"> 
-<table>
-     <tbody>
+<table id="myTable" class="tablesorter">
+     <thead>
         <tr>
            <?php
         foreach($mykeys as $k) {
-            echo "<td style='cursor:pointer'>$k<img src='/test/images/UpDown.png' width='8px' height='auto' style='margin: 0px 20px'></td>";
+            if ($k == "name") {
+              $k = "Name";
+            }
+            if ($k == "sku") {
+              $k = "SKU";
+            }
+            if ($k == "category") {
+              $k = "Category";
+            }
+            if ($k == "color") {
+              $k = "Color";
+            }
+            if ($k == "size") {
+              $k = "Size";
+            }
+            if ($k == "currentPrice") {
+              $k = "Price";
+            }
+            echo "<th style='cursor:pointer'>$k<img src='/test/images/UpDown.png' width='8px' height='auto' style='margin: 0px 20px'></th>";
         }
         ?>
         </tr>
+        </thead>
+        <tbody>
         <?php
         foreach($phpArray as $key => $values) {
             echo '<tr>';
