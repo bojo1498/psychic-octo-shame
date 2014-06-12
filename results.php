@@ -28,7 +28,6 @@ $result = file_get_contents('https://user.traxia.com/app/api/inventory', false, 
 $jsonData = $result;
 $phpArray = json_decode($jsonData, true);
 $phpArray = $phpArray['results'];
-$activeonly = array_filter($phpArray, function($active) { return $status['status']=="ACTIVE"; });
 $mykeys = array('name','sku','category','color','size','currentPrice');
 }
 ?>
@@ -77,9 +76,10 @@ $(document).ready(function()
         <tbody>
         <?php
         foreach($phpArray as $key => $values) {
+            if ($values['category'] == 'UNCATEGORIZED') continue;
+            if ($values['status'] == '') continue;
             echo '<tr>';
             foreach($mykeys as $k) {
-                if ($values['category'] == 'UNCATEGORIZED') continue;
                 $value = $k == "currentPrice" ? '$' . number_format($values[$k]/100,'2') : $values[$k];
                 echo "<td>" . $value . "</td>";
             }
