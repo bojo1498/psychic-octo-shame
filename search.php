@@ -46,22 +46,28 @@ div#DP01 {
 	cursor:pointer;
 }
 </style>
+</script>
 </head>
 <body>
 <div id="layout">
 <div id="DP01">
     <br><h27><center>Search Our Inventory at The Loft</center></h27><br>
-<form action="testphp1.php" method="get">
-Search here: <input type="text" name="search"><br>
+    <h33>Inventory changes every day. Please enter one or two words. For example if you are looking for a brand name like Prada, type in prada. You can sort results by clicking on a column heading.</h33>
+<form action="/test/results.php" method="post">
+<table>
+<tbody>
+<tr>
+<td>
+<input type="text" name="search" autofocus><br>
+</td>
+<td>
 <input type="submit"><br>
+</td>
+</tr>
+</tbody>
+</table>
 </form>
-    <h33>We are in the process of updating the inventory search. We will post some current inventory items on fackbook or our blog. <a href=https://www.facebook.com/theloftames> https://www.facebook.com/theloftames </a></h33><br><br>
 <br><br>
-<!-- <h27><center>View Our Current Inventory</center></h27>
-<center>
-<a href="#" onclick="getTableRecordsSearch('latest');">Show Latest Inventory</a>
-</center> -->
-
 <br><br>
 <h31><center>Please contact us if you have any additional questions <a class="popup" href="/popups/contact.html"><strong>here.</strong></a><br>or call us 515-232-9053.</center></h31>
 <br><br>

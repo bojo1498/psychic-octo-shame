@@ -1,6 +1,6 @@
 <?php
 
-$search = $_GET['search'];
+$search = $_REQUEST['search'];
 if ($search == "") {
 	echo "Please enter a query. <a href='/search.php'>Click Here</a> to go back";
   break;
